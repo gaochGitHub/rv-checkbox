@@ -1,6 +1,6 @@
 # RVCheckbox
 
-基于 react-virtualized 的 大数据量下的多选 checkboxcheckbox 组件
+基于 react-virtualized 的 大数据量下的多选 checkbox 组件
 
 ## Development
 
