@@ -20,6 +20,7 @@ class App extends Component {
           disabled={false}
           width={400}
           height={400}
+          onChange={v => console.log(v)}
           options={this.getOptions()}
         />
       </div>

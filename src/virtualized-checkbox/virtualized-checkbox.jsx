@@ -16,6 +16,10 @@ class Checkboxes extends Component {
 
   componentWillReceiveProps(nextProps) {
     this.list.forceUpdateGrid()
+    if ('value' in nextProps) {
+      const { value } = nextProps
+      this.setState({ value })
+    }
   }
 
   handleChange = record => {
@@ -39,7 +43,7 @@ class Checkboxes extends Component {
     const { options, disabled } = this.props
     const item = options[index]
     return (
-      <label style={{ ...style, margin: 0 }}>
+      <label key={item.value.toString()} style={{ ...style, margin: 0 }}>
         <Checkbox
           prefixCls={'prefixCls'}
           key={item.value.toString()}
@@ -263,6 +267,8 @@ class VirtualizedCheckbox extends Component {
               width={_terminalWidth(propWidth || width)}
               options={filterOptions}
               rowHeight={rowHeight}
+              value={value}
+              onChange={this.handleChange}
             />
             {/* </CheckboxGroup> */}
           </div>
