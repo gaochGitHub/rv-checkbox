@@ -1,0 +1,53 @@
+{
+  "name": "rv-checkbox",
+  "version": "0.1.1",
+  "main": "dist/bundle.js",
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "rc-checkbox": "^2.1.5",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "react-scripts": "1.1.4",
+    "react-virtualized": "^9.20.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "dist": "webpack --config webpack.config.dist.js"
+  },
+  "description": "基于 react-virtualized 的 checkbox",
+  "devDependencies": {
+    "autoprefixer": "^9.1.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-react-transform": "^3.0.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "file-loader": "^1.1.11",
+    "postcss-flexbugs-fixes": "^4.1.0",
+    "postcss-loader": "^2.1.6",
+    "uglifyjs-webpack-plugin": "^1.2.7",
+    "url-loader": "^1.0.1",
+    "webpack": "^4.16.4",
+    "webpack-command": "^0.4.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gaochGitHub/rv-checkbox.git"
+  },
+  "keywords": [
+    "react",
+    "checkbox",
+    "react-virtualized-checkbox"
+  ],
+  "author": "clark",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gaochGitHub/rv-checkbox/issues"
+  },
+  "homepage": "https://github.com/gaochGitHub/rv-checkbox#readme"
+}
