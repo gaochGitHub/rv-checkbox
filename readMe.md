@@ -2,18 +2,27 @@
 
 基于 react-virtualized 的 大数据量下的多选 checkboxcheckbox 组件
 
-## `npm start` 启动 demo
+## Development
 
-## `npm run build` 打包 demo 为静态文件 (没什么用)
+```
+npm install
+npm start
+```
 
-## `npm run dist` 打包输出目标文件 `dist/bundle.js`
+## install
 
-## 组件的使用
+[![rv-checkbox](https://nodei.co/npm/rv-checkbox.png)](https://npmjs.org/package/rv-checkbox)
+
+## Usage
 
 ```jsx
 import RVCheckbox from 'rv-checkbox'
 <RVCheckbox options={[{label:'', value:''} ... ]} />
 ```
+
+## API
+
+### props
 
 | props        | 说明           | 参数类型                                   | 默认值 |
 | ------------ | -------------- | ------------------------------------------ | ------ |
