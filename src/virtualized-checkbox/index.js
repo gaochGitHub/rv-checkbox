@@ -1,3 +1,3 @@
-import VirtualizedCheckbox from './virtualized-checkbox.jsx'
+import VirtualizedCheckbox from './virtualized-checkbox'
 
 export default VirtualizedCheckbox

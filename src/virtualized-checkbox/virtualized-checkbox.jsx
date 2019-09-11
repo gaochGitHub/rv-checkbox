@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
-import { List } from 'react-virtualized'
-import PropTypes from 'prop-types'
-import { AutoSizer } from 'react-virtualized'
-import classnames from 'classnames'
-import Checkbox from 'rc-checkbox'
-import './style.css'
+import React, { Component } from "react"
+import { List } from "react-virtualized"
+import PropTypes from "prop-types"
+import { AutoSizer } from "react-virtualized"
+import classnames from "classnames"
+import Checkbox from "rc-checkbox"
+import "./style.css"
 
 class Checkboxes extends Component {
   constructor(props) {
@@ -16,7 +16,7 @@ class Checkboxes extends Component {
 
   componentWillReceiveProps(nextProps) {
     this.list.forceUpdateGrid()
-    if ('value' in nextProps) {
+    if ("value" in nextProps) {
       const { value } = nextProps
       this.setState({ value })
     }
@@ -30,7 +30,7 @@ class Checkboxes extends Component {
     } else {
       value.splice(optionIndex, 1)
     }
-    if (!('value' in this.props)) {
+    if (!("value" in this.props)) {
       this.setState({ value })
     }
     const onChange = this.props.onChange
@@ -40,18 +40,18 @@ class Checkboxes extends Component {
   }
 
   checkboxRenderer = ({ index, style }) => {
-    const { options, disabled } = this.props
+    const { options, disabled, prefixCls = "prefixCls" } = this.props
     const item = options[index]
     return (
       <label key={item.value.toString()} style={{ ...style, margin: 0 }}>
         <Checkbox
-          prefixCls={'prefixCls'}
+          prefixCls={prefixCls}
           key={item.value.toString()}
           disabled={disabled}
           value={item.value}
           checked={this.state.value.indexOf(item.value) !== -1}
           onChange={() => this.handleChange(item)}
-          className={`${'groupPrefixCls'}-item`}
+          className={`${"groupPrefixCls"}-item`}
         />
         {item.label}
       </label>
@@ -63,7 +63,7 @@ class Checkboxes extends Component {
     const rowCount = options.length
     return (
       <List
-        style={{ outline: 'none' }}
+        style={{ outline: "none" }}
         height={height}
         width={width}
         ref={ref => {
@@ -88,11 +88,14 @@ const HeaderBar = ({
   disabled,
   headerWrapperClassName
 }) => (
-  <div style={{ width, height }} className={classnames('vcheader__wrapper', headerWrapperClassName)}>
+  <div
+    style={{ width, height }}
+    className={classnames("vcheader__wrapper", headerWrapperClassName)}
+  >
     <div>
       <label>
         <Checkbox
-          prefixCls={'prefixCls'}
+          prefixCls={"prefixCls"}
           className="vchcheckbox__wrapper"
           checked={checkAll}
           onChange={e => onCheckAll(e.target.checked)}
@@ -152,12 +155,12 @@ class VirtualizedCheckbox extends Component {
     this.state = {
       value: value || defaultValue || [],
       options: result,
-      filterText: ''
+      filterText: ""
     }
   }
 
   componentWillReceiveProps(nextProps) {
-    if ('value' in nextProps) {
+    if ("value" in nextProps) {
       const { value } = nextProps
       this.setState({ value })
     }
@@ -166,7 +169,7 @@ class VirtualizedCheckbox extends Component {
   optimizeOptions() {
     const { options } = this.props
     return options.map(option => {
-      if (typeof option === 'string') {
+      if (typeof option === "string") {
         return {
           label: option,
           value: option
@@ -182,10 +185,14 @@ class VirtualizedCheckbox extends Component {
     if (!filterText || !filter) {
       return options
     } else {
-      if (typeof filter === 'boolean') {
-        let results = options.filter(it => it.label && it.label.toLowerCase().indexOf(filterText.toLowerCase()) >= 0)
+      if (typeof filter === "boolean") {
+        let results = options.filter(
+          it =>
+            it.label &&
+            it.label.toLowerCase().indexOf(filterText.toLowerCase()) >= 0
+        )
         return results
-      } else if (typeof filter === 'function') {
+      } else if (typeof filter === "function") {
         return options.filter(it => filter(filterText, it.label))
       }
     }
@@ -198,12 +205,12 @@ class VirtualizedCheckbox extends Component {
       checkAll: checked,
       value: items
     })
-    if (typeof onChange === 'function') onChange(items)
+    if (typeof onChange === "function") onChange(items)
   }
 
   handleChange = value => {
     const { onChange } = this.props
-    if (typeof onChange === 'function') onChange(value)
+    if (typeof onChange === "function") onChange(value)
     this.setState({ value })
   }
 
@@ -246,7 +253,7 @@ class VirtualizedCheckbox extends Component {
         {({ width, height }) => (
           <div
             style={this.getRect(propHeight || height, propWidth || width)}
-            className={classnames('virtualized-checkbox', wrapperClassName)}
+            className={classnames("virtualized-checkbox", wrapperClassName)}
           >
             {showHeader && (
               <HeaderBar
@@ -254,8 +261,10 @@ class VirtualizedCheckbox extends Component {
                 height={headerHeight}
                 width={propWidth || width}
                 disabled={disabled}
-                title={filterText ? '过滤结果' : title}
-                checkAll={filterOptions.length && value.length === filterOptions.length}
+                title={filterText ? "过滤结果" : title}
+                checkAll={
+                  filterOptions.length && value.length === filterOptions.length
+                }
                 filter={filter}
                 onCheckAll={this.handleCheckAllChange}
                 onChange={this.handleFilterChange}

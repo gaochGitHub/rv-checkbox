@@ -1,31 +1,12 @@
-import React, { Component } from 'react'
-import ReactDOM from 'react-dom'
-import VC from './virtualized-checkbox'
-class App extends Component {
-  getOptions() {
-    var options = []
-    for (let index = 0; index < 1000; index++) {
-      const element = { label: `数据项-${index}`, value: index }
-      options.push(element)
-    }
-    return options
-  }
-  render() {
-    return (
-      <div className="App">
-        <VC
-          filter={true}
-          title={'示例数据'}
-          defaultValue={[1]}
-          disabled={false}
-          width={400}
-          height={400}
-          onChange={v => console.log(v)}
-          options={this.getOptions()}
-        />
-      </div>
-    )
-  }
-}
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'))
+ReactDOM.render(<App />, document.getElementById('root'));
+
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://bit.ly/CRA-PWA
+serviceWorker.unregister();
